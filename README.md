@@ -11,4 +11,8 @@ Group project for Computer Science Cybersecurity LAB at Anderson University
  
  ## Referances
  
- https://github.com/linklayer/pyvit
+
+
+python stuff: https://github.com/linklayer/pyvit
+ 
+Firmware stuff for CANtact:  https://github.com/linklayer/cantact-fw
