@@ -3,6 +3,9 @@ from pyvit.hw.cantact import CantactDev
 from pyvit.hw import cantact
 import sys
 
+from pyvit.file import jsondb
+from pyvit.hw import socketcan
+
 
 def write_to_can_bus(input):
     dev = cantact.CantactDev(sys.argv[1])
@@ -22,3 +25,26 @@ def read_from_can_bus():
     dev.start()
     while True:
         print(dev.recv())
+
+
+# decode - linux
+parser = jsondb.JsonDbParser()
+b = parser.parse('examples/example_db.json')
+
+dev = socketcan.SocketCanDev('vcan0')
+dev.start()
+
+while True:
+    frame = dev.recv()
+    signals = b.parse_frame(frame)
+    if signals:
+        for s in signals:
+            print(s)
+
+
+# decode 2
+dev = socketcan.SocketCanDev("can0")
+
+dev.start()
+while True:
+    print(dev.recv())
