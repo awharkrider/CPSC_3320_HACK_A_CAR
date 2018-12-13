@@ -3,7 +3,7 @@ from pyvit.hw.cantact import CantactDev
 from pyvit.hw import cantact
 import sys
 
-from pyvit.file import jsondb
+from pyvit.file.db import jsondb
 from pyvit.hw import socketcan
 
 
